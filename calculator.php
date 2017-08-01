@@ -15,12 +15,23 @@ if($argv[1] === 'sum'|| $argv[1] === 'add'){
 		}else{
 			$numArr = explode($numArr[1], str_replace("n", ',', $numArr[2]));
 		}
-		//sum all value of array
-		$result = array_sum($numArr);
+
+		$arr = array_filter($numArr, 'isnegative');
+		if(count($arr)>0){
+			$result = "Error: Negative numbers not allowed.";
+		}else{
+			//sum all value of array
+			$result = array_sum($numArr);
+		}
 	}else{
 		$result = 0;
 	}
 }
 
 echo $result;
+
+//to check negative numbers
+function isnegative($value){
+    return is_numeric($value) && $value < 0;
+}
 ?>
