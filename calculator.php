@@ -9,11 +9,11 @@ exit;
 if($argv[1] === 'sum'|| $argv[1] === 'add'){
 	if(isset($argv[2])){
 		$numArr = explode(",", $argv[2]);
+		//sum all value of array
 		$result = array_sum($numArr);
 	}else{
 		$result = 0;
 	}
-	
 }
 
 echo $result;
