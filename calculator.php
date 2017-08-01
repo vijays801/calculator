@@ -18,7 +18,7 @@ if($argv[1] === 'sum'|| $argv[1] === 'add'){
 
 		$arr = array_filter($numArr, 'isnegative');
 		if(count($arr)>0){
-			$result = "Error: Negative numbers not allowed.";
+			$result = "Error: Negative numbers(".implode(",", $arr).") not allowed.";
 		}else{
 			//sum all value of array
 			$result = array_sum($numArr);
