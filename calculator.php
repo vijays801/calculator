@@ -20,6 +20,8 @@ if($argv[1] === 'sum'|| $argv[1] === 'add'){
 		if(count($arr)>0){
 			$result = "Error: Negative numbers(".implode(",", $arr).") not allowed.";
 		}else{
+			$numArr = array_filter($numArr, 'isSmaller');
+
 			//sum all value of array
 			$result = array_sum($numArr);
 		}
@@ -33,5 +35,10 @@ echo $result;
 //to check negative numbers
 function isnegative($value){
     return is_numeric($value) && $value < 0;
+}
+
+//select number smaller than 1001
+function isSmaller($value){
+    return is_numeric($value) && $value < 1001;
 }
 ?>
